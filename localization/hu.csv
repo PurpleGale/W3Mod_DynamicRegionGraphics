@@ -1,0 +1,89 @@
+;meta[language=hu]
+; id      |key(hex)|key(str)| text
+2118590000|5eb9237e|DynamicRegionGraphics|Dinamikus régiógrafika
+2118590001|97745383|panel_DynamicRegionGraphics|Dinamikus régiógrafika
+2118590002|536d461e|preset_DynamicRegionGraphics|Előbeállítások
+2118590003|6a1e1b01|Mods.DynamicRegionGraphics|Dinamikus régiógrafika
+2118590004|5f69261c|panel_Mods.DynamicRegionGraphics|Dinamikus régiógrafika
+2118590005|215b8c42|DRG_General|Általános beállítások
+2118590006|16ed0e87|panel_DRG_General|Általános beállítások
+2118590007|73bc76e2|preset_DRG_General|Előbeállítások
+2118590008|7097e4d5|Mods.DynamicRegionGraphics.DRG_General|Általános beállítások
+2118590009|967c1f70|panel_Mods.DynamicRegionGraphics.DRG_General|Általános beállítások
+2118590010|b225844b|DRG_Wyzima|Vyzima: Palota és udvar
+2118590011|14e82566|panel_DRG_Wyzima|Vyzima: Palota és udvar
+2118590012|30acc5ab|preset_DRG_Wyzima|Előbeállítások
+2118590013|ee824d58|Mods.DynamicRegionGraphics.DRG_Wyzima|Vyzima: Palota és udvar
+2118590014|be2ed35d|panel_Mods.DynamicRegionGraphics.DRG_Wyzima|Vyzima: Palota és udvar
+2118590015|a9006868|DRG_WhiteOrchard|Fehér Liget
+2118590016|d1ce8943|panel_DRG_WhiteOrchard|Fehér Liget
+2118590017|31a921c8|preset_DRG_WhiteOrchard|Előbeállítások
+2118590018|a49373b5|Mods.DynamicRegionGraphics.DRG_WhiteOrchard|Fehér Liget
+2118590019|8ec2a1fa|panel_Mods.DynamicRegionGraphics.DRG_WhiteOrchard|Fehér Liget
+2118590020|3a20799e|DRG_NovigradVelen|Novigrad és Velen
+2118590021|2b167423|panel_DRG_NovigradVelen|Novigrad és Velen
+2118590022|c68eec3e|preset_DRG_NovigradVelen|Előbeállítások
+2118590023|b0eed7f1|Mods.DynamicRegionGraphics.DRG_NovigradVelen|Novigrad és Velen
+2118590024|0ca5724c|panel_Mods.DynamicRegionGraphics.DRG_NovigradVelen|Novigrad és Velen
+2118590025|170de480|DRG_Skellige|Skellige-szigetek
+2118590026|d3acaadb|panel_DRG_Skellige|Skellige-szigetek
+2118590027|10ca4de0|preset_DRG_Skellige|Előbeállítások
+2118590028|af5c9e4d|Mods.DynamicRegionGraphics.DRG_Skellige|Skellige-szigetek
+2118590029|45ffb712|panel_Mods.DynamicRegionGraphics.DRG_Skellige|Skellige-szigetek
+2118590030|5da2c6aa|DRG_KaerMorhen|Kaer Morhen
+2118590031|6da96245|panel_DRG_KaerMorhen|Kaer Morhen
+2118590032|d9ea580a|preset_DRG_KaerMorhen|Előbeállítások
+2118590033|1d2a4137|Mods.DynamicRegionGraphics.DRG_KaerMorhen|Kaer Morhen
+2118590034|976a3cbc|panel_Mods.DynamicRegionGraphics.DRG_KaerMorhen|Kaer Morhen
+2118590035|592c7902|DRG_Toussaint|Toussaint (Vér és bor)
+2118590036|30667e07|panel_DRG_Toussaint|Toussaint (Vér és bor)
+2118590037|96fd3ba2|preset_DRG_Toussaint|Előbeállítások
+2118590038|cab4f8d5|Mods.DynamicRegionGraphics.DRG_Toussaint|Toussaint (Vér és bor)
+2118590039|0874f8b0|panel_Mods.DynamicRegionGraphics.DRG_Toussaint|Toussaint (Vér és bor)
+2118590040|ae6bc413|DRG_Special|Különleges világok
+2118590041|a3fd4658|panel_DRG_Special|Különleges világok
+2118590042|00ccaeb3|preset_DRG_Special|Előbeállítások
+2118590043|fda81ca6|Mods.DynamicRegionGraphics.DRG_Special|Különleges világok
+2118590044|238c5741|panel_Mods.DynamicRegionGraphics.DRG_Special|Különleges világok
+2118590045|c6320e9b|DRG_Enabled|Mód engedélyezése
+2118590046|a33eedd1|option_DRG_Enabled|Mód engedélyezése
+2118590047|39bbacc2|DRG_Notifications|Értesítések megjelenítése
+2118590048|d3f5cb78|option_DRG_Notifications|Értesítések megjelenítése
+2118590049|68e7209b|DRG_DisableInCombat|Kikapcsolás harc közben
+2118590050|5d1469d1|option_DRG_DisableInCombat|Kikapcsolás harc közben
+2118590051|8f71a85a|DRG_Combat|Harc
+2118590052|78a04105|DRG_PT_UpscaleQuality|Felskálázási minőség Path Tracinghez
+2118590053|16a014bb|option_DRG_PT_UpscaleQuality|Felskálázási minőség Path Tracinghez
+2118590054|19f3fd07|DRG_RT_UpscaleQuality|Felskálázási minőség Ray Tracinghez
+2118590055|b7f3d0bd|option_DRG_RT_UpscaleQuality|Felskálázási minőség Ray Tracinghez
+2118590056|9e741945|DRG_Upscale_Auto|Automatikus
+2118590057|edc04bcf|option_DRG_Upscale_Auto|Automatikus
+2118590058|b5e0d5a9|DRG_Upscale_Quality|Minőség
+2118590059|aa0e1edf|option_DRG_Upscale_Quality|Minőség
+2118590060|e037ed9e|DRG_Upscale_Balanced|Kiegyensúlyozott
+2118590061|71b3cb28|option_DRG_Upscale_Balanced|Kiegyensúlyozott
+2118590062|9e7aae7f|DRG_Upscale_Perf|Teljesítmény
+2118590063|edc6e109|option_DRG_Upscale_Perf|Teljesítmény
+2118590064|6209e6bf|DRG_Upscale_UltraPerf|Ultra teljesítmény
+2118590065|0009ba75|option_DRG_Upscale_UltraPerf|Ultra teljesítmény
+2118590066|31a73aa4|DRG_Exterior|Külterület (Nyílt világ / utcák)
+2118590067|f636422e|option_DRG_Exterior|Külterület (Nyílt világ / utcák)
+2118590068|c02d9d96|DRG_Interior|Beltér (Épületek, termek, barlangok)
+2118590069|84bca520|option_DRG_Interior|Beltér (Épületek, termek, barlangok)
+2118590070|3828ada9|DRG_Special_Mist|Ködök szigete
+2118590071|8774e033|option_DRG_Special_Mist|Ködök szigete
+2118590072|db4f189d|DRG_Special_Spiral|Időn és téren át (Spirál)
+2118590073|8858d0a7|option_DRG_Special_Spiral|Időn és téren át (Spirál)
+2118590074|cc867f94|DRG_Special_Fable|Az ezer mese földje
+2118590075|66c09e4a|option_DRG_Special_Fable|Az ezer mese földje
+2118590076|cd0e0be4|DRG_Special_Other|Egyéb / Nem listázott helyszínek
+2118590077|67482a9a|option_DRG_Special_Other|Egyéb / Nem listázott helyszínek
+2118590078|070e0f0f|DRG_Opt_Default|Alapértelmezett (Játékos beállításai)
+2118590079|c78c6345|option_DRG_Opt_Default|Alapértelmezett (Játékos beállításai)
+2118590080|a3fd0cb4|DRG_Opt_RT|Sugárkövetés kényszerítése (RT)
+2118590081|a2dc6ebe|option_DRG_Opt_RT|Sugárkövetés kényszerítése (RT)
+2118590082|a3fd0c76|DRG_Opt_PT|Útkövetés kényszerítése (PT)
+2118590083|a2dc6e80|option_DRG_Opt_PT|Útkövetés kényszerítése (PT)
+2118590084|bc276ce8|msg_drg_pt|Útkövetés
+2118590085|bc276d26|msg_drg_rt|Sugárkövetés
+2118590086|0ce825dd|msg_drg_default|Alapértelmezett beállítások
