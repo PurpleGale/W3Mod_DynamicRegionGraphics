@@ -78,8 +78,8 @@
 2118590075|66c09e4a|option_DRG_Special_Fable|Land of a Thousand Fables
 2118590076|cd0e0be4|DRG_Special_Other|Other / Unlisted Locations
 2118590077|67482a9a|option_DRG_Special_Other|Other / Unlisted Locations
-2118590078|070e0f0f|DRG_Opt_Default|Off (Default)
-2118590079|c78c6345|option_DRG_Opt_Default|Off (Default)
+2118590078|070e0f0f|DRG_Opt_Default|As In Game
+2118590079|c78c6345|option_DRG_Opt_Default|As In Game
 2118590080|a3fd0cb4|DRG_Opt_RT|Force Ray Tracing
 2118590081|a2dc6ebe|option_DRG_Opt_RT|Force Ray Tracing
 2118590082|a3fd0c76|DRG_Opt_PT|Force Path Tracing
@@ -91,3 +91,5 @@
 2118590088|bc276ce8|msg_drg_pt|Path Tracing
 2118590089|bc276d26|msg_drg_rt|Ray Tracing
 2118590090|0ce825dd|msg_drg_default|Default Settings
+2118590091|022df6a3|panel_mainmenu_option_value_off|Off
+2118590092|c7591ed9|option_panel_mainmenu_option_value_off|Off

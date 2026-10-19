@@ -78,8 +78,8 @@
 2118590075|66c09e4a|option_DRG_Special_Fable|Terra das Mil Fábulas
 2118590076|cd0e0be4|DRG_Special_Other|Outros / Locais não listados
 2118590077|67482a9a|option_DRG_Special_Other|Outros / Locais não listados
-2118590078|070e0f0f|DRG_Opt_Default|Desativado (padrão)
-2118590079|c78c6345|option_DRG_Opt_Default|Desativado (padrão)
+2118590078|070e0f0f|DRG_Opt_Default|Como no jogo
+2118590079|c78c6345|option_DRG_Opt_Default|Como no jogo
 2118590080|a3fd0cb4|DRG_Opt_RT|Forçar traçado de raios (RT)
 2118590081|a2dc6ebe|option_DRG_Opt_RT|Forçar traçado de raios (RT)
 2118590082|a3fd0c76|DRG_Opt_PT|Forçar traçado de caminhos (PT)
@@ -91,3 +91,5 @@
 2118590088|bc276ce8|msg_drg_pt|Traçado de caminhos
 2118590089|bc276d26|msg_drg_rt|Traçado de raios
 2118590090|0ce825dd|msg_drg_default|Configurações padrão
+2118590091|022df6a3|panel_mainmenu_option_value_off|Desligado
+2118590092|c7591ed9|option_panel_mainmenu_option_value_off|Desligado

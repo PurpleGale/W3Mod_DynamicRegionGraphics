@@ -322,11 +322,13 @@ class DynamicRegionGraphicsManager
 		}
 		else
 		{
+			// "Как в игре" (-1): Leave user's in-game AA Mode untouched
 			activeAAMode = ReadVar( "PostProcess", 'AAMode' );
 		}
 
 		// Apply upscaler quality depending on active upscaler
-		if ( theGame.GetDLSSEnabled() || activeAAMode == "6" )
+		// Priority checks based on activeAAMode first to avoid stale native engine flags
+		if ( activeAAMode == "6" || ( activeAAMode == "" && theGame.GetDLSSEnabled() ) )
 		{
 			if ( dlssQualityVal != "" )
 			{
@@ -341,14 +343,14 @@ class DynamicRegionGraphicsManager
 				ApplyVar( "PostProcess", 'EnableDLSSRR', "false" );
 			}
 		}
-		else if ( theGame.GetFSREnabled() || activeAAMode == "5" )
+		else if ( activeAAMode == "5" || ( activeAAMode == "" && theGame.GetFSREnabled() ) )
 		{
 			if ( fsrQualityVal != "" )
 			{
 				ApplyVar( "PostProcess", 'FSR2Quality', fsrQualityVal );
 			}
 		}
-		else if ( theGame.GetXESSEnabled() || activeAAMode == "7" )
+		else if ( activeAAMode == "7" || ( activeAAMode == "" && theGame.GetXESSEnabled() ) )
 		{
 			if ( xessQualityVal != "" )
 			{
@@ -368,22 +370,34 @@ class DynamicRegionGraphicsManager
 
 	private function RestoreBaselineAA() : void
 	{
+		var aaModeVal    : string;
 		var activeAAMode : string;
 
 		if ( !m_hasBaseline )
 			return;
 
-		if ( m_baseAAMode != "" )
+		aaModeVal = m_options.GetAAMode();
+
+		// Only restore baseline AAMode if DRG actually overrode it!
+		if ( aaModeVal != "-1" && aaModeVal != "" )
 		{
-			ApplyVar( "PostProcess", 'AAMode', m_baseAAMode );
-			activeAAMode = m_baseAAMode;
+			if ( m_baseAAMode != "" )
+			{
+				ApplyVar( "PostProcess", 'AAMode', m_baseAAMode );
+				activeAAMode = m_baseAAMode;
+			}
+			else
+			{
+				activeAAMode = ReadVar( "PostProcess", 'AAMode' );
+			}
 		}
 		else
 		{
+			// DRG didn't touch AAMode, keep current in-game AA mode
 			activeAAMode = ReadVar( "PostProcess", 'AAMode' );
 		}
 
-		if ( theGame.GetDLSSEnabled() || activeAAMode == "6" )
+		if ( activeAAMode == "6" || ( activeAAMode == "" && theGame.GetDLSSEnabled() ) )
 		{
 			if ( m_baseDLSSQuality != "" )
 			{
@@ -394,14 +408,14 @@ class DynamicRegionGraphicsManager
 				ApplyVar( "PostProcess", 'EnableDLSSRR', m_baseEnableDLSSRR );
 			}
 		}
-		else if ( theGame.GetFSREnabled() || activeAAMode == "5" )
+		else if ( activeAAMode == "5" || ( activeAAMode == "" && theGame.GetFSREnabled() ) )
 		{
 			if ( m_baseFSR2Quality != "" )
 			{
 				ApplyVar( "PostProcess", 'FSR2Quality', m_baseFSR2Quality );
 			}
 		}
-		else if ( theGame.GetXESSEnabled() || activeAAMode == "7" )
+		else if ( activeAAMode == "7" || ( activeAAMode == "" && theGame.GetXESSEnabled() ) )
 		{
 			if ( m_baseXESSQuality != "" )
 			{

@@ -12,7 +12,7 @@
             <Var id="Separator_Upscale" displayName="" displayType="SUBTLE_SEPARATOR"/>
 
             <!-- Anti-Aliasing Mode -->
-            <Var id="DRG_AAMode" displayName="allow_Antialias" displayType="OPTIONS" tags="customNames;nonLocalizedExceptFirst">
+            <Var id="DRG_AAMode" displayName="allow_Antialias" displayType="OPTIONS" tags="customNames">
                 <OptionsArray>
                     <Option id="0" displayName="DRG_Opt_Default">
                         <Entry varId="DRG_AAMode" value="-1"/>
