@@ -93,3 +93,11 @@
 2118590090|0ce825dd|msg_drg_default|Ustawienia domyślne
 2118590091|022df6a3|panel_mainmenu_option_value_off|Wyłączone
 2118590092|c7591ed9|option_panel_mainmenu_option_value_off|Wyłączone
+2118590093|dc4ff08b|DRG_AA_FXAA|FXAA
+2118590094|b95ccfc1|option_DRG_AA_FXAA|FXAA
+2118590095|8b3c620c|DRG_AA_FSR|AMD FSR
+2118590096|8a1bc416|option_DRG_AA_FSR|AMD FSR
+2118590097|dc57da26|DRG_AA_XeSS|XeSS
+2118590098|b964b95c|option_DRG_AA_XeSS|XeSS
+2118590099|dc4edd01|DRG_AA_DLSS|DLSS
+2118590100|b95bbc37|option_DRG_AA_DLSS|DLSS

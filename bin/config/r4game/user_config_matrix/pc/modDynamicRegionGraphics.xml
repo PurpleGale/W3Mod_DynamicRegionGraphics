@@ -20,16 +20,16 @@
                     <Option id="1" displayName="panel_mainmenu_option_value_off">
                         <Entry varId="DRG_AAMode" value="0"/>
                     </Option>
-                    <Option id="2" displayName="FXAA">
+                    <Option id="2" displayName="DRG_AA_FXAA">
                         <Entry varId="DRG_AAMode" value="1"/>
                     </Option>
-                    <Option id="3" displayName="AMD FSR Upscaling">
+                    <Option id="3" displayName="DRG_AA_FSR">
                         <Entry varId="DRG_AAMode" value="5"/>
                     </Option>
-                    <Option id="4" displayName="XeSS">
+                    <Option id="4" displayName="DRG_AA_XeSS">
                         <Entry varId="DRG_AAMode" value="7"/>
                     </Option>
-                    <Option id="5" displayName="DLSS">
+                    <Option id="5" displayName="DRG_AA_DLSS">
                         <Entry varId="DRG_AAMode" value="6"/>
                     </Option>
                 </OptionsArray>
