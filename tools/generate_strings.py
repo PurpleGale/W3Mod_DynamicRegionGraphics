@@ -311,7 +311,7 @@ TRANSLATIONS = {
     },
     "DRG_Upscale_Auto": {
         "en": "Auto",
-        "ru": "Авто (Auto)",
+        "ru": "Авто",
         "pl": "Automatyczna",
         "de": "Automatisch",
         "fr": "Automatique",
@@ -331,7 +331,7 @@ TRANSLATIONS = {
     },
     "DRG_Upscale_Quality": {
         "en": "Quality",
-        "ru": "Качество (Quality)",
+        "ru": "Качество",
         "pl": "Jakość",
         "de": "Qualität",
         "fr": "Qualité",
@@ -351,7 +351,7 @@ TRANSLATIONS = {
     },
     "DRG_Upscale_Balanced": {
         "en": "Balanced",
-        "ru": "Баланс (Balanced)",
+        "ru": "Баланс",
         "pl": "Zrównoważony",
         "de": "Ausgewogen",
         "fr": "Équilibré",
@@ -371,7 +371,7 @@ TRANSLATIONS = {
     },
     "DRG_Upscale_Perf": {
         "en": "Performance",
-        "ru": "Производительность (Performance)",
+        "ru": "Производительность",
         "pl": "Wydajność",
         "de": "Leistung",
         "fr": "Performance",
@@ -391,7 +391,7 @@ TRANSLATIONS = {
     },
     "DRG_Upscale_UltraPerf": {
         "en": "Ultra Performance",
-        "ru": "Ультра-производительность (Ultra Performance)",
+        "ru": "Ультра-производительность",
         "pl": "Ultra wydajność",
         "de": "Ultra-Leistung",
         "fr": "Ultra performance",

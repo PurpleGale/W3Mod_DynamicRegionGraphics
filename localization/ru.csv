@@ -56,16 +56,16 @@
 2118590053|16a014bb|option_DRG_PT_UpscaleQuality|Качество масштабирования при Path Tracing
 2118590054|19f3fd07|DRG_RT_UpscaleQuality|Качество масштабирования при Ray Tracing
 2118590055|b7f3d0bd|option_DRG_RT_UpscaleQuality|Качество масштабирования при Ray Tracing
-2118590056|9e741945|DRG_Upscale_Auto|Авто (Auto)
-2118590057|edc04bcf|option_DRG_Upscale_Auto|Авто (Auto)
-2118590058|b5e0d5a9|DRG_Upscale_Quality|Качество (Quality)
-2118590059|aa0e1edf|option_DRG_Upscale_Quality|Качество (Quality)
-2118590060|e037ed9e|DRG_Upscale_Balanced|Баланс (Balanced)
-2118590061|71b3cb28|option_DRG_Upscale_Balanced|Баланс (Balanced)
-2118590062|9e7aae7f|DRG_Upscale_Perf|Производительность (Performance)
-2118590063|edc6e109|option_DRG_Upscale_Perf|Производительность (Performance)
-2118590064|6209e6bf|DRG_Upscale_UltraPerf|Ультра-производительность (Ultra Performance)
-2118590065|0009ba75|option_DRG_Upscale_UltraPerf|Ультра-производительность (Ultra Performance)
+2118590056|9e741945|DRG_Upscale_Auto|Авто
+2118590057|edc04bcf|option_DRG_Upscale_Auto|Авто
+2118590058|b5e0d5a9|DRG_Upscale_Quality|Качество
+2118590059|aa0e1edf|option_DRG_Upscale_Quality|Качество
+2118590060|e037ed9e|DRG_Upscale_Balanced|Баланс
+2118590061|71b3cb28|option_DRG_Upscale_Balanced|Баланс
+2118590062|9e7aae7f|DRG_Upscale_Perf|Производительность
+2118590063|edc6e109|option_DRG_Upscale_Perf|Производительность
+2118590064|6209e6bf|DRG_Upscale_UltraPerf|Ультра-производительность
+2118590065|0009ba75|option_DRG_Upscale_UltraPerf|Ультра-производительность
 2118590066|31a73aa4|DRG_Exterior|Экстерьер (открытый мир / улица)
 2118590067|f636422e|option_DRG_Exterior|Экстерьер (открытый мир / улица)
 2118590068|c02d9d96|DRG_Interior|Интерьер (помещения, залы, пещеры)
