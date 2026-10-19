@@ -23,9 +23,12 @@ class DynamicRegionGraphicsManager
 	private var m_baseRTReflections       : string;
 
 	// Cached baseline user upscaler settings
+	private var m_baseAAMode              : string;
 	private var m_baseDLSSQuality         : string;
+	private var m_baseEnableDLSSRR        : string;
 	private var m_baseFSR2Quality         : string;
 	private var m_baseXESSQuality         : string;
+	private var m_baseDRSEnable           : string;
 
 	public function Initialize() : void
 	{
@@ -57,9 +60,12 @@ class DynamicRegionGraphicsManager
 			m_baseRTAOEnabled      = ReadVar( "Rendering/RT", 'RTAOEnabled' );
 			m_baseRTReflections    = ReadVar( "Rendering/RT", 'RTReflectionsEnabled' );
 
+			m_baseAAMode           = ReadVar( "PostProcess", 'AAMode' );
 			m_baseDLSSQuality      = ReadVar( "PostProcess", 'DLSSQuality' );
+			m_baseEnableDLSSRR     = ReadVar( "PostProcess", 'EnableDLSSRR' );
 			m_baseFSR2Quality      = ReadVar( "PostProcess", 'FSR2Quality' );
 			m_baseXESSQuality      = ReadVar( "PostProcess", 'XESSQuality' );
+			m_baseDRSEnable        = ReadVar( "Rendering/DRS", 'Enable' );
 
 			if ( m_baseEnableRT != "" )
 			{
@@ -199,7 +205,6 @@ class DynamicRegionGraphicsManager
 		var cw : CInGameConfigWrapper;
 		var profileNameMsg : string;
 		var notificationMsg : string;
-		var upscaleOption : int;
 
 		cw = theGame.GetInGameConfigWrapper();
 		if ( !cw )
@@ -219,8 +224,7 @@ class DynamicRegionGraphicsManager
 				ApplyVar( "Rendering/RT", 'RTAOEnabled', "true" );
 				ApplyVar( "Rendering/RT", 'RTReflectionsEnabled', "true" );
 
-				upscaleOption = m_options.GetPTUpscaleQuality();
-				ApplyUpscaleQuality( upscaleOption );
+				ApplyAAConfig();
 
 				profileNameMsg = GetLocStringByKeyExt( "msg_drg_pt" );
 				break;
@@ -249,8 +253,7 @@ class DynamicRegionGraphicsManager
 					ApplyVar( "Rendering/RT", 'RTAOEnabled', "false" );
 				}
 
-				upscaleOption = m_options.GetRTUpscaleQuality();
-				ApplyUpscaleQuality( upscaleOption );
+				ApplyAAConfig();
 
 				profileNameMsg = GetLocStringByKeyExt( "msg_drg_rt" );
 				break;
@@ -267,8 +270,8 @@ class DynamicRegionGraphicsManager
 					if ( m_baseRTAOEnabled != "" )      ApplyVar( "Rendering/RT", 'RTAOEnabled', m_baseRTAOEnabled );
 					if ( m_baseRTReflections != "" )    ApplyVar( "Rendering/RT", 'RTReflectionsEnabled', m_baseRTReflections );
 
-					// Restore baseline upscaler (e.g. DLAA)
-					ApplyUpscaleQuality( 0 );
+					// Restore baseline anti-aliasing / upscaler
+					RestoreBaselineAA();
 				}
 				profileNameMsg = GetLocStringByKeyExt( "msg_drg_default" );
 				break;
@@ -298,56 +301,117 @@ class DynamicRegionGraphicsManager
 		}
 	}
 
-	private function ApplyUpscaleQuality( optionVal : int ) : void
+	private function ApplyAAConfig() : void
 	{
-		var qStr : string;
-		var aaModeStr : string;
+		var aaModeVal      : string;
+		var dlssQualityVal : string;
+		var fsrQualityVal  : string;
+		var xessQualityVal : string;
+		var activeAAMode   : string;
 
-		aaModeStr = ReadVar( "PostProcess", 'AAMode' );
+		aaModeVal      = m_options.GetAAMode();
+		dlssQualityVal = m_options.GetDLSSQuality();
+		fsrQualityVal  = m_options.GetFSR2Quality();
+		xessQualityVal = m_options.GetXESSQuality();
 
-		// 0: Restore baseline upscaler setting (e.g. DLAA)
-		if ( optionVal == 0 )
+		// If user configured a specific AA mode (0=Off, 1=FXAA, 5=FSR, 6=DLSS, 7=XeSS)
+		if ( aaModeVal != "-1" && aaModeVal != "" )
 		{
-			if ( m_hasBaseline )
+			ApplyVar( "PostProcess", 'AAMode', aaModeVal );
+			activeAAMode = aaModeVal;
+		}
+		else
+		{
+			activeAAMode = ReadVar( "PostProcess", 'AAMode' );
+		}
+
+		// Apply upscaler quality depending on active upscaler
+		if ( theGame.GetDLSSEnabled() || activeAAMode == "6" )
+		{
+			if ( dlssQualityVal != "" )
 			{
-				if ( ( theGame.GetDLSSEnabled() || aaModeStr == "6" ) && m_baseDLSSQuality != "" )
-				{
-					ApplyVar( "PostProcess", 'DLSSQuality', m_baseDLSSQuality );
-				}
-				else if ( ( theGame.GetFSREnabled() || aaModeStr == "5" ) && m_baseFSR2Quality != "" )
-				{
-					ApplyVar( "PostProcess", 'FSR2Quality', m_baseFSR2Quality );
-				}
-				else if ( ( theGame.GetXESSEnabled() || aaModeStr == "7" ) && m_baseXESSQuality != "" )
-				{
-					ApplyVar( "PostProcess", 'XESSQuality', m_baseXESSQuality );
-				}
+				ApplyVar( "PostProcess", 'DLSSQuality', dlssQualityVal );
 			}
+			if ( m_options.IsDLSSRREnabled() )
+			{
+				ApplyVar( "PostProcess", 'EnableDLSSRR', "true" );
+			}
+			else
+			{
+				ApplyVar( "PostProcess", 'EnableDLSSRR', "false" );
+			}
+		}
+		else if ( theGame.GetFSREnabled() || activeAAMode == "5" )
+		{
+			if ( fsrQualityVal != "" )
+			{
+				ApplyVar( "PostProcess", 'FSR2Quality', fsrQualityVal );
+			}
+		}
+		else if ( theGame.GetXESSEnabled() || activeAAMode == "7" )
+		{
+			if ( xessQualityVal != "" )
+			{
+				ApplyVar( "PostProcess", 'XESSQuality', xessQualityVal );
+			}
+		}
+
+		if ( m_options.IsDRSEnabled() )
+		{
+			ApplyVar( "Rendering/DRS", 'Enable', "true" );
+		}
+		else
+		{
+			ApplyVar( "Rendering/DRS", 'Enable', "false" );
+		}
+	}
+
+	private function RestoreBaselineAA() : void
+	{
+		var activeAAMode : string;
+
+		if ( !m_hasBaseline )
 			return;
+
+		if ( m_baseAAMode != "" )
+		{
+			ApplyVar( "PostProcess", 'AAMode', m_baseAAMode );
+			activeAAMode = m_baseAAMode;
+		}
+		else
+		{
+			activeAAMode = ReadVar( "PostProcess", 'AAMode' );
 		}
 
-		// Convert menu option to in-engine upscaler quality index
-		switch ( optionVal )
+		if ( theGame.GetDLSSEnabled() || activeAAMode == "6" )
 		{
-			case 1: qStr = "0"; break; // Auto
-			case 2: qStr = "1"; break; // Quality
-			case 3: qStr = "2"; break; // Balanced
-			case 4: qStr = "3"; break; // Performance
-			case 5: qStr = "4"; break; // Ultra Performance
-			default: return;
+			if ( m_baseDLSSQuality != "" )
+			{
+				ApplyVar( "PostProcess", 'DLSSQuality', m_baseDLSSQuality );
+			}
+			if ( m_baseEnableDLSSRR != "" )
+			{
+				ApplyVar( "PostProcess", 'EnableDLSSRR', m_baseEnableDLSSRR );
+			}
+		}
+		else if ( theGame.GetFSREnabled() || activeAAMode == "5" )
+		{
+			if ( m_baseFSR2Quality != "" )
+			{
+				ApplyVar( "PostProcess", 'FSR2Quality', m_baseFSR2Quality );
+			}
+		}
+		else if ( theGame.GetXESSEnabled() || activeAAMode == "7" )
+		{
+			if ( m_baseXESSQuality != "" )
+			{
+				ApplyVar( "PostProcess", 'XESSQuality', m_baseXESSQuality );
+			}
 		}
 
-		if ( theGame.GetDLSSEnabled() || aaModeStr == "6" )
+		if ( m_baseDRSEnable != "" )
 		{
-			ApplyVar( "PostProcess", 'DLSSQuality', qStr );
-		}
-		else if ( theGame.GetFSREnabled() || aaModeStr == "5" )
-		{
-			ApplyVar( "PostProcess", 'FSR2Quality', qStr );
-		}
-		else if ( theGame.GetXESSEnabled() || aaModeStr == "7" )
-		{
-			ApplyVar( "PostProcess", 'XESSQuality', qStr );
+			ApplyVar( "Rendering/DRS", 'Enable', m_baseDRSEnable );
 		}
 	}
 

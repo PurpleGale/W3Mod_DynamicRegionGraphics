@@ -32,30 +32,74 @@ class DynamicRegionGraphicsOptions
 		return cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_DisableInCombat' ) == "true";
 	}
 
-	public function GetPTUpscaleQuality() : int
+	public function GetAAMode() : string
 	{
 		var cw : CInGameConfigWrapper;
 		var val : string;
 		cw = theGame.GetInGameConfigWrapper();
 		if ( !cw )
-			return 0;
-		val = cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_PT_UpscaleQuality' );
+			return "-1";
+		val = cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_AAMode' );
 		if ( val == "" )
-			return 0;
-		return StringToInt( val, 0 );
+			return "-1";
+		return val;
 	}
 
-	public function GetRTUpscaleQuality() : int
+	public function GetDLSSQuality() : string
 	{
 		var cw : CInGameConfigWrapper;
 		var val : string;
 		cw = theGame.GetInGameConfigWrapper();
 		if ( !cw )
-			return 0;
-		val = cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_RT_UpscaleQuality' );
+			return "0";
+		val = cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_DLSSQuality' );
 		if ( val == "" )
-			return 0;
-		return StringToInt( val, 0 );
+			return "0";
+		return val;
+	}
+
+	public function IsDLSSRREnabled() : bool
+	{
+		var cw : CInGameConfigWrapper;
+		cw = theGame.GetInGameConfigWrapper();
+		if ( !cw )
+			return false;
+		return cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_EnableDLSSRR' ) == "true";
+	}
+
+	public function GetFSR2Quality() : string
+	{
+		var cw : CInGameConfigWrapper;
+		var val : string;
+		cw = theGame.GetInGameConfigWrapper();
+		if ( !cw )
+			return "0";
+		val = cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_FSR2Quality' );
+		if ( val == "" )
+			return "0";
+		return val;
+	}
+
+	public function GetXESSQuality() : string
+	{
+		var cw : CInGameConfigWrapper;
+		var val : string;
+		cw = theGame.GetInGameConfigWrapper();
+		if ( !cw )
+			return "0";
+		val = cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_XESSQuality' );
+		if ( val == "" )
+			return "0";
+		return val;
+	}
+
+	public function IsDRSEnabled() : bool
+	{
+		var cw : CInGameConfigWrapper;
+		cw = theGame.GetInGameConfigWrapper();
+		if ( !cw )
+			return false;
+		return cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_DRSEnable' ) == "true";
 	}
 
 	public function GetRTGIQuality() : string

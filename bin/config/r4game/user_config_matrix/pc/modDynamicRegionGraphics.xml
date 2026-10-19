@@ -11,24 +11,120 @@
 
             <Var id="Separator_Upscale" displayName="" displayType="SUBTLE_SEPARATOR"/>
 
-            <Var id="DRG_PT_UpscaleQuality" displayName="DRG_PT_UpscaleQuality" displayType="OPTIONS" tags="customNames;customDisplayName">
+            <!-- Anti-Aliasing Mode -->
+            <Var id="DRG_AAMode" displayName="allow_Antialias" displayType="OPTIONS" tags="customNames;nonLocalizedExceptFirst">
                 <OptionsArray>
-                    <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_PT_UpscaleQuality" value="0"/></Option>
-                    <Option id="1" displayName="DRG_Upscale_Auto"><Entry varId="DRG_PT_UpscaleQuality" value="1"/></Option>
-                    <Option id="2" displayName="DRG_Upscale_Quality"><Entry varId="DRG_PT_UpscaleQuality" value="2"/></Option>
-                    <Option id="3" displayName="DRG_Upscale_Balanced"><Entry varId="DRG_PT_UpscaleQuality" value="3"/></Option>
-                    <Option id="4" displayName="DRG_Upscale_Perf"><Entry varId="DRG_PT_UpscaleQuality" value="4"/></Option>
-                    <Option id="5" displayName="DRG_Upscale_UltraPerf"><Entry varId="DRG_PT_UpscaleQuality" value="5"/></Option>
+                    <Option id="0" displayName="DRG_Opt_Default">
+                        <Entry varId="DRG_AAMode" value="-1"/>
+                    </Option>
+                    <Option id="1" displayName="panel_mainmenu_option_value_off">
+                        <Entry varId="DRG_AAMode" value="0"/>
+                    </Option>
+                    <Option id="2" displayName="FXAA">
+                        <Entry varId="DRG_AAMode" value="1"/>
+                    </Option>
+                    <Option id="3" displayName="AMD FSR Upscaling">
+                        <Entry varId="DRG_AAMode" value="5"/>
+                    </Option>
+                    <Option id="4" displayName="XeSS">
+                        <Entry varId="DRG_AAMode" value="7"/>
+                    </Option>
+                    <Option id="5" displayName="DLSS">
+                        <Entry varId="DRG_AAMode" value="6"/>
+                    </Option>
                 </OptionsArray>
             </Var>
-            <Var id="DRG_RT_UpscaleQuality" displayName="DRG_RT_UpscaleQuality" displayType="OPTIONS" tags="customNames;customDisplayName">
+
+            <!-- DLSS Quality (Includes DLAA) -->
+            <Var id="DRG_DLSSQuality" displayName="dlss_quality" displayType="OPTIONS" tags="customNames;indent">
                 <OptionsArray>
-                    <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_RT_UpscaleQuality" value="0"/></Option>
-                    <Option id="1" displayName="DRG_Upscale_Auto"><Entry varId="DRG_RT_UpscaleQuality" value="1"/></Option>
-                    <Option id="2" displayName="DRG_Upscale_Quality"><Entry varId="DRG_RT_UpscaleQuality" value="2"/></Option>
-                    <Option id="3" displayName="DRG_Upscale_Balanced"><Entry varId="DRG_RT_UpscaleQuality" value="3"/></Option>
-                    <Option id="4" displayName="DRG_Upscale_Perf"><Entry varId="DRG_RT_UpscaleQuality" value="4"/></Option>
-                    <Option id="5" displayName="DRG_Upscale_UltraPerf"><Entry varId="DRG_RT_UpscaleQuality" value="5"/></Option>
+                    <Option id="0" displayName="dlss_auto">
+                        <Entry varId="DRG_DLSSQuality" value="0"/>
+                    </Option>
+                    <Option id="1" displayName="dlss_quality">
+                        <Entry varId="DRG_DLSSQuality" value="1"/>
+                    </Option>
+                    <Option id="2" displayName="dlss_balanced">
+                        <Entry varId="DRG_DLSSQuality" value="2"/>
+                    </Option>
+                    <Option id="3" displayName="dlss_perf">
+                        <Entry varId="DRG_DLSSQuality" value="3"/>
+                    </Option>
+                    <Option id="4" displayName="dlss_ultraperf">
+                        <Entry varId="DRG_DLSSQuality" value="4"/>
+                    </Option>
+                    <Option id="5" displayName="option_dlss_dlaa">
+                        <Entry varId="DRG_DLSSQuality" value="5"/>
+                    </Option>
+                </OptionsArray>
+            </Var>
+
+            <!-- DLSS Ray Reconstruction -->
+            <Var id="DRG_EnableDLSSRR" displayName="dlss_r" displayType="TOGGLE" tags="customNames;indent;enableIfDLSSRRSupported"/>
+
+            <!-- AMD FSR Quality -->
+            <Var id="DRG_FSR2Quality" displayName="fsr_quality" displayType="OPTIONS" tags="customNames;indent">
+                <OptionsArray>
+                    <Option id="0" displayName="dlss_auto">
+                        <Entry varId="DRG_FSR2Quality" value="0"/>
+                    </Option>
+                    <Option id="1" displayName="option_nativeaa" tags="enableIfFSR4">
+                        <Entry varId="DRG_FSR2Quality" value="1"/>
+                    </Option>
+                    <Option id="2" displayName="dlss_quality">
+                        <Entry varId="DRG_FSR2Quality" value="2"/>
+                    </Option>
+                    <Option id="3" displayName="dlss_balanced">
+                        <Entry varId="DRG_FSR2Quality" value="3"/>
+                    </Option>
+                    <Option id="4" displayName="dlss_perf">
+                        <Entry varId="DRG_FSR2Quality" value="4"/>
+                    </Option>
+                    <Option id="5" displayName="dlss_ultraperf">
+                        <Entry varId="DRG_FSR2Quality" value="5"/>
+                    </Option>
+                </OptionsArray>
+            </Var>
+
+            <!-- XeSS Quality -->
+            <Var id="DRG_XESSQuality" displayName="xess_quality" displayType="OPTIONS" tags="customNames;indent">
+                <OptionsArray>
+                    <Option id="0" displayName="dlss_auto">
+                        <Entry varId="DRG_XESSQuality" value="0"/>
+                    </Option>
+                    <Option id="1" displayName="option_nativeaa">
+                        <Entry varId="DRG_XESSQuality" value="1"/>
+                    </Option>
+                    <Option id="2" displayName="option_xess_ultra_quality_plus">
+                        <Entry varId="DRG_XESSQuality" value="2"/>
+                    </Option>
+                    <Option id="3" displayName="xess_ultraquality">
+                        <Entry varId="DRG_XESSQuality" value="3"/>
+                    </Option>
+                    <Option id="4" displayName="dlss_quality">
+                        <Entry varId="DRG_XESSQuality" value="4"/>
+                    </Option>
+                    <Option id="5" displayName="dlss_balanced">
+                        <Entry varId="DRG_XESSQuality" value="5"/>
+                    </Option>
+                    <Option id="6" displayName="dlss_perf">
+                        <Entry varId="DRG_XESSQuality" value="6"/>
+                    </Option>
+                    <Option id="7" displayName="dlss_ultraperf">
+                        <Entry varId="DRG_XESSQuality" value="7"/>
+                    </Option>
+                </OptionsArray>
+            </Var>
+
+            <!-- Dynamic Resolution Scaling -->
+            <Var id="DRG_DRSEnable" displayName="DynamicResolutionScaling" displayType="OPTIONS" tags="customNames;customDisplayName;indent">
+                <OptionsArray>
+                    <Option id="0" displayName="panel_mainmenu_option_value_off">
+                        <Entry varId="DRG_DRSEnable" value="false"/>
+                    </Option>
+                    <Option id="1" displayName="panel_mainmenu_option_value_on">
+                        <Entry varId="DRG_DRSEnable" value="true"/>
+                    </Option>
                 </OptionsArray>
             </Var>
 
