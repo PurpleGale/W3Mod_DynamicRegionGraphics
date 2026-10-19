@@ -808,6 +808,26 @@ TRANSLATIONS = {
         "tr": "DLSS",
         "ar": "DLSS",
         "ua": "DLSS",
+    },
+    "DRG_OverrideAA": {
+        "en": "Override Anti-Aliasing",
+        "ru": "Изменять сглаживание",
+        "pl": "Zmieniaj antyaliasing",
+        "de": "Kantenglättung anpassen",
+        "fr": "Modifier l'anticrénelage",
+        "it": "Modifica anti-aliasing",
+        "es": "Modificar antialiasing",
+        "esmx": "Modificar antialiasing",
+        "br": "Modificar suavização de serrilhado",
+        "cz": "Změnit vyhlazování hran",
+        "hu": "Élsimítás felülbírálása",
+        "jp": "アンチエイリアスを変更",
+        "kr": "안티앨리어싱 변경",
+        "zh": "自訂反鋸齒設定",
+        "cn": "自定抗锯齿设置",
+        "tr": "Kenar Yumuşatmayı Değiştir",
+        "ar": "تعديل تنعيم الحواف",
+        "ua": "Змінювати згладжування",
     }
 }
 
@@ -933,6 +953,8 @@ KEY_MAP = [
     ("panel_mainmenu_option_value_off", "panel_mainmenu_option_value_off"),
     ("option_panel_mainmenu_option_value_off", "panel_mainmenu_option_value_off"),
 
+    ("DRG_OverrideAA", "DRG_OverrideAA"),
+    ("option_DRG_OverrideAA", "DRG_OverrideAA"),
     ("DRG_AA_FXAA", "DRG_AA_FXAA"),
     ("option_DRG_AA_FXAA", "DRG_AA_FXAA"),
     ("DRG_AA_FSR", "DRG_AA_FSR"),

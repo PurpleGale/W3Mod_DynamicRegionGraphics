@@ -20,7 +20,6 @@ class DynamicRegionGraphicsManager
 	private var m_baseEnableRtRadiance    : string;
 	private var m_baseShadows             : string;
 	private var m_baseRTAOEnabled         : string;
-	private var m_baseRTReflections       : string;
 
 	// Cached baseline user upscaler settings
 	private var m_baseAAMode              : string;
@@ -58,7 +57,6 @@ class DynamicRegionGraphicsManager
 			m_baseEnableRtRadiance = ReadVar( "Rendering/RT", 'EnableRtRadiance' );
 			m_baseShadows          = ReadVar( "Rendering/RT", 'Shadows' );
 			m_baseRTAOEnabled      = ReadVar( "Rendering/RT", 'RTAOEnabled' );
-			m_baseRTReflections    = ReadVar( "Rendering/RT", 'RTReflectionsEnabled' );
 
 			m_baseAAMode           = ReadVar( "PostProcess", 'AAMode' );
 			m_baseDLSSQuality      = ReadVar( "PostProcess", 'DLSSQuality' );
@@ -222,7 +220,6 @@ class DynamicRegionGraphicsManager
 				ApplyVar( "Rendering/RT", 'EnableRtRadiance', "true" );
 				ApplyVar( "Rendering/RT", 'Shadows', "2" );
 				ApplyVar( "Rendering/RT", 'RTAOEnabled', "true" );
-				ApplyVar( "Rendering/RT", 'RTReflectionsEnabled', "true" );
 
 				ApplyAAConfig();
 
@@ -236,12 +233,10 @@ class DynamicRegionGraphicsManager
 				if ( m_options.IsRTReflectionsEnabled() )
 				{
 					ApplyVar( "Rendering/RT", 'EnableRtRadiance', "true" );
-					ApplyVar( "Rendering/RT", 'RTReflectionsEnabled', "true" );
 				}
 				else
 				{
 					ApplyVar( "Rendering/RT", 'EnableRtRadiance', "false" );
-					ApplyVar( "Rendering/RT", 'RTReflectionsEnabled', "false" );
 				}
 				ApplyVar( "Rendering/RT", 'Shadows', m_options.GetRTShadowsQuality() );
 				if ( m_options.IsRTAOEnabled() )
@@ -268,7 +263,6 @@ class DynamicRegionGraphicsManager
 					if ( m_baseEnableRtRadiance != "" ) ApplyVar( "Rendering/RT", 'EnableRtRadiance', m_baseEnableRtRadiance );
 					if ( m_baseShadows != "" )          ApplyVar( "Rendering/RT", 'Shadows', m_baseShadows );
 					if ( m_baseRTAOEnabled != "" )      ApplyVar( "Rendering/RT", 'RTAOEnabled', m_baseRTAOEnabled );
-					if ( m_baseRTReflections != "" )    ApplyVar( "Rendering/RT", 'RTReflectionsEnabled', m_baseRTReflections );
 
 					// Restore baseline anti-aliasing / upscaler
 					RestoreBaselineAA();
@@ -307,28 +301,26 @@ class DynamicRegionGraphicsManager
 		var dlssQualityVal : string;
 		var fsrQualityVal  : string;
 		var xessQualityVal : string;
-		var activeAAMode   : string;
+
+		// If Override Anti-Aliasing is disabled, leave player's in-game AA completely untouched!
+		if ( !m_options.IsOverrideAAEnabled() )
+		{
+			return;
+		}
 
 		aaModeVal      = m_options.GetAAMode();
 		dlssQualityVal = m_options.GetDLSSQuality();
 		fsrQualityVal  = m_options.GetFSR2Quality();
 		xessQualityVal = m_options.GetXESSQuality();
 
-		// If user configured a specific AA mode (0=Off, 1=FXAA, 5=FSR, 6=DLSS, 7=XeSS)
-		if ( aaModeVal != "-1" && aaModeVal != "" )
+		// User enabled AA override: apply the configured AAMode (0, 1, 5, 6, 7)
+		if ( aaModeVal != "" )
 		{
 			ApplyVar( "PostProcess", 'AAMode', aaModeVal );
-			activeAAMode = aaModeVal;
-		}
-		else
-		{
-			// "Как в игре" (-1): Leave user's in-game AA Mode untouched
-			activeAAMode = ReadVar( "PostProcess", 'AAMode' );
 		}
 
-		// Apply upscaler quality depending on active upscaler
-		// Priority checks based on activeAAMode first to avoid stale native engine flags
-		if ( activeAAMode == "6" || ( activeAAMode == "" && theGame.GetDLSSEnabled() ) )
+		// Apply quality to active upscaler in [PostProcess]
+		if ( aaModeVal == "6" || ( aaModeVal == "" && theGame.GetDLSSEnabled() ) )
 		{
 			if ( dlssQualityVal != "" )
 			{
@@ -343,14 +335,14 @@ class DynamicRegionGraphicsManager
 				ApplyVar( "PostProcess", 'EnableDLSSRR', "false" );
 			}
 		}
-		else if ( activeAAMode == "5" || ( activeAAMode == "" && theGame.GetFSREnabled() ) )
+		else if ( aaModeVal == "5" || ( aaModeVal == "" && theGame.GetFSREnabled() ) )
 		{
 			if ( fsrQualityVal != "" )
 			{
 				ApplyVar( "PostProcess", 'FSR2Quality', fsrQualityVal );
 			}
 		}
-		else if ( activeAAMode == "7" || ( activeAAMode == "" && theGame.GetXESSEnabled() ) )
+		else if ( aaModeVal == "7" || ( aaModeVal == "" && theGame.GetXESSEnabled() ) )
 		{
 			if ( xessQualityVal != "" )
 			{
@@ -370,34 +362,20 @@ class DynamicRegionGraphicsManager
 
 	private function RestoreBaselineAA() : void
 	{
-		var aaModeVal    : string;
-		var activeAAMode : string;
-
 		if ( !m_hasBaseline )
 			return;
 
-		aaModeVal = m_options.GetAAMode();
+		// Only restore baseline AA if DRG was configured to override it!
+		if ( !m_options.IsOverrideAAEnabled() )
+			return;
 
-		// Only restore baseline AAMode if DRG actually overrode it!
-		if ( aaModeVal != "-1" && aaModeVal != "" )
+		if ( m_baseAAMode != "" )
 		{
-			if ( m_baseAAMode != "" )
-			{
-				ApplyVar( "PostProcess", 'AAMode', m_baseAAMode );
-				activeAAMode = m_baseAAMode;
-			}
-			else
-			{
-				activeAAMode = ReadVar( "PostProcess", 'AAMode' );
-			}
-		}
-		else
-		{
-			// DRG didn't touch AAMode, keep current in-game AA mode
-			activeAAMode = ReadVar( "PostProcess", 'AAMode' );
+			ApplyVar( "PostProcess", 'AAMode', m_baseAAMode );
 		}
 
-		if ( activeAAMode == "6" || ( activeAAMode == "" && theGame.GetDLSSEnabled() ) )
+		// Restore baseline upscaler quality
+		if ( m_baseAAMode == "6" || ( m_baseAAMode == "" && theGame.GetDLSSEnabled() ) )
 		{
 			if ( m_baseDLSSQuality != "" )
 			{
@@ -408,14 +386,14 @@ class DynamicRegionGraphicsManager
 				ApplyVar( "PostProcess", 'EnableDLSSRR', m_baseEnableDLSSRR );
 			}
 		}
-		else if ( activeAAMode == "5" || ( activeAAMode == "" && theGame.GetFSREnabled() ) )
+		else if ( theGame.GetFSREnabled() || m_baseAAMode == "5" )
 		{
 			if ( m_baseFSR2Quality != "" )
 			{
 				ApplyVar( "PostProcess", 'FSR2Quality', m_baseFSR2Quality );
 			}
 		}
-		else if ( activeAAMode == "7" || ( activeAAMode == "" && theGame.GetXESSEnabled() ) )
+		else if ( theGame.GetXESSEnabled() || m_baseAAMode == "7" )
 		{
 			if ( m_baseXESSQuality != "" )
 			{

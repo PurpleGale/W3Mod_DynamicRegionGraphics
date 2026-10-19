@@ -11,25 +11,25 @@
 
             <Var id="Separator_Upscale" displayName="" displayType="SUBTLE_SEPARATOR"/>
 
-            <!-- Anti-Aliasing Mode -->
-            <Var id="DRG_AAMode" displayName="allow_Antialias" displayType="OPTIONS" tags="customNames">
+            <!-- Override Anti-Aliasing Switch Button -->
+            <Var id="DRG_OverrideAA" displayName="DRG_OverrideAA" displayType="TOGGLE" tags="customDisplayName"/>
+
+            <!-- Anti-Aliasing Mode (Active only when Override AA is enabled) -->
+            <Var id="DRG_AAMode" displayName="allow_Antialias" displayType="OPTIONS" tags="customNames;indent">
                 <OptionsArray>
-                    <Option id="0" displayName="DRG_Opt_Default">
-                        <Entry varId="DRG_AAMode" value="-1"/>
-                    </Option>
-                    <Option id="1" displayName="panel_mainmenu_option_value_off">
+                    <Option id="0" displayName="panel_mainmenu_option_value_off">
                         <Entry varId="DRG_AAMode" value="0"/>
                     </Option>
-                    <Option id="2" displayName="DRG_AA_FXAA">
+                    <Option id="1" displayName="DRG_AA_FXAA">
                         <Entry varId="DRG_AAMode" value="1"/>
                     </Option>
-                    <Option id="3" displayName="DRG_AA_FSR">
+                    <Option id="2" displayName="DRG_AA_FSR">
                         <Entry varId="DRG_AAMode" value="5"/>
                     </Option>
-                    <Option id="4" displayName="DRG_AA_XeSS">
+                    <Option id="3" displayName="DRG_AA_XeSS">
                         <Entry varId="DRG_AAMode" value="7"/>
                     </Option>
-                    <Option id="5" displayName="DRG_AA_DLSS">
+                    <Option id="4" displayName="DRG_AA_DLSS">
                         <Entry varId="DRG_AAMode" value="6"/>
                     </Option>
                 </OptionsArray>

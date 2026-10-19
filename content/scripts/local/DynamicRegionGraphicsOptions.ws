@@ -32,16 +32,25 @@ class DynamicRegionGraphicsOptions
 		return cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_DisableInCombat' ) == "true";
 	}
 
+	public function IsOverrideAAEnabled() : bool
+	{
+		var cw : CInGameConfigWrapper;
+		cw = theGame.GetInGameConfigWrapper();
+		if ( !cw )
+			return false;
+		return cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_OverrideAA' ) == "true";
+	}
+
 	public function GetAAMode() : string
 	{
 		var cw : CInGameConfigWrapper;
 		var val : string;
 		cw = theGame.GetInGameConfigWrapper();
 		if ( !cw )
-			return "-1";
+			return "6";
 		val = cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_AAMode' );
 		if ( val == "" )
-			return "-1";
+			return "6";
 		return val;
 	}
 
@@ -239,6 +248,6 @@ class DynamicRegionGraphicsOptions
 
 	public function GetDRGVersion() : string
 	{
-		return "1.1.2";
+		return "1.2.0";
 	}
 }
