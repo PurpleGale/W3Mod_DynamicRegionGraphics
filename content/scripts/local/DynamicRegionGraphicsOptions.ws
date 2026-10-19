@@ -58,6 +58,58 @@ class DynamicRegionGraphicsOptions
 		return StringToInt( val, 0 );
 	}
 
+	public function GetRTGIQuality() : string
+	{
+		var cw : CInGameConfigWrapper;
+		var val : string;
+		cw = theGame.GetInGameConfigWrapper();
+		if ( !cw )
+			return "false";
+		val = cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_RT_GI' );
+		if ( val == "1" )
+			return "true";
+		return "false";
+	}
+
+	public function IsRTReflectionsEnabled() : bool
+	{
+		var cw : CInGameConfigWrapper;
+		var val : string;
+		cw = theGame.GetInGameConfigWrapper();
+		if ( !cw )
+			return true;
+		val = cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_RT_Reflections' );
+		if ( val == "" )
+			return true;
+		return val == "true";
+	}
+
+	public function GetRTShadowsQuality() : string
+	{
+		var cw : CInGameConfigWrapper;
+		var val : string;
+		cw = theGame.GetInGameConfigWrapper();
+		if ( !cw )
+			return "0";
+		val = cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_RT_Shadows' );
+		if ( val == "" )
+			return "0";
+		return val;
+	}
+
+	public function IsRTAOEnabled() : bool
+	{
+		var cw : CInGameConfigWrapper;
+		var val : string;
+		cw = theGame.GetInGameConfigWrapper();
+		if ( !cw )
+			return true;
+		val = cw.GetVarValue( 'DynamicRegionGraphics_Main', 'DRG_RT_AO' );
+		if ( val == "" )
+			return true;
+		return val == "true";
+	}
+
 	public function GetTargetProfile( areaName : name, worldPath : string, isInterior : bool ) : int
 	{
 		var cw : CInGameConfigWrapper;

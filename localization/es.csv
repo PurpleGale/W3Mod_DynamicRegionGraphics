@@ -78,12 +78,16 @@
 2118590075|66c09e4a|option_DRG_Special_Fable|País de las Mil Fábulas
 2118590076|cd0e0be4|DRG_Special_Other|Otras / Ubicaciones no listadas
 2118590077|67482a9a|option_DRG_Special_Other|Otras / Ubicaciones no listadas
-2118590078|070e0f0f|DRG_Opt_Default|Por defecto (Ajustes de usuario)
-2118590079|c78c6345|option_DRG_Opt_Default|Por defecto (Ajustes de usuario)
+2118590078|070e0f0f|DRG_Opt_Default|Desactivado (predeterminado)
+2118590079|c78c6345|option_DRG_Opt_Default|Desactivado (predeterminado)
 2118590080|a3fd0cb4|DRG_Opt_RT|Forzar trazado de rayos (RT)
 2118590081|a2dc6ebe|option_DRG_Opt_RT|Forzar trazado de rayos (RT)
 2118590082|a3fd0c76|DRG_Opt_PT|Forzar trazado de caminos (PT)
 2118590083|a2dc6e80|option_DRG_Opt_PT|Forzar trazado de caminos (PT)
-2118590084|bc276ce8|msg_drg_pt|Trazado de caminos
-2118590085|bc276d26|msg_drg_rt|Trazado de rayos
-2118590086|0ce825dd|msg_drg_default|Ajustes por defecto
+2118590084|c46109bc|DRG_Notice_RTQuality|Calidad de trazado de rayos
+2118590085|55dce746|option_DRG_Notice_RTQuality|Calidad de trazado de rayos
+2118590086|f31a5d62|DRG_Notice_InGeneral|En ajustes generales
+2118590087|84963aec|option_DRG_Notice_InGeneral|En ajustes generales
+2118590088|bc276ce8|msg_drg_pt|Trazado de caminos
+2118590089|bc276d26|msg_drg_rt|Trazado de rayos
+2118590090|0ce825dd|msg_drg_default|Ajustes por defecto

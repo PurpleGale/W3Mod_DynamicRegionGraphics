@@ -228,11 +228,26 @@ class DynamicRegionGraphicsManager
 			case 1: // Force Ray Tracing
 				ApplyVar( "Rendering/RT", 'EnableRT', "true" );
 				ApplyVar( "Rendering/RT/PathTracer", 'PTEnable', "false" );
-				ApplyVar( "Rendering/RT", 'RTGIPreset', "true" );
-				ApplyVar( "Rendering/RT", 'EnableRtRadiance', "true" );
-				ApplyVar( "Rendering/RT", 'Shadows', "2" );
-				ApplyVar( "Rendering/RT", 'RTAOEnabled', "true" );
-				ApplyVar( "Rendering/RT", 'RTReflectionsEnabled', "true" );
+				ApplyVar( "Rendering/RT", 'RTGIPreset', m_options.GetRTGIQuality() );
+				if ( m_options.IsRTReflectionsEnabled() )
+				{
+					ApplyVar( "Rendering/RT", 'EnableRtRadiance', "true" );
+					ApplyVar( "Rendering/RT", 'RTReflectionsEnabled', "true" );
+				}
+				else
+				{
+					ApplyVar( "Rendering/RT", 'EnableRtRadiance', "false" );
+					ApplyVar( "Rendering/RT", 'RTReflectionsEnabled', "false" );
+				}
+				ApplyVar( "Rendering/RT", 'Shadows', m_options.GetRTShadowsQuality() );
+				if ( m_options.IsRTAOEnabled() )
+				{
+					ApplyVar( "Rendering/RT", 'RTAOEnabled', "true" );
+				}
+				else
+				{
+					ApplyVar( "Rendering/RT", 'RTAOEnabled', "false" );
+				}
 
 				upscaleOption = m_options.GetRTUpscaleQuality();
 				ApplyUpscaleQuality( upscaleOption );

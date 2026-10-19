@@ -8,6 +8,9 @@
             <Var id="DRG_Enabled" displayName="DRG_Enabled" displayType="TOGGLE" tags="customDisplayName"/>
             <Var id="DRG_Notifications" displayName="DRG_Notifications" displayType="TOGGLE" tags="customDisplayName"/>
             <Var id="DRG_DisableInCombat" displayName="DRG_DisableInCombat" displayType="TOGGLE" tags="customDisplayName"/>
+
+            <Var id="Separator_Upscale" displayName="" displayType="SUBTLE_SEPARATOR"/>
+
             <Var id="DRG_PT_UpscaleQuality" displayName="DRG_PT_UpscaleQuality" displayType="OPTIONS" tags="customNames;customDisplayName">
                 <OptionsArray>
                     <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_PT_UpscaleQuality" value="0"/></Option>
@@ -28,6 +31,28 @@
                     <Option id="5" displayName="DRG_Upscale_UltraPerf"><Entry varId="DRG_RT_UpscaleQuality" value="5"/></Option>
                 </OptionsArray>
             </Var>
+
+            <Var id="Separator_RT" displayName="" displayType="SUBTLE_SEPARATOR"/>
+
+            <!-- Ray Tracing Quality Options (applied when RT is active in regions) -->
+            <Var id="DRG_RT_GI" displayName="option_rt_global_illumination" displayType="OPTIONS" tags="customNames;customDisplayName">
+                <OptionsArray>
+                    <Option id="0" displayName="dlss_perf"><Entry varId="DRG_RT_GI" value="0"/></Option>
+                    <Option id="1" displayName="dlss_quality"><Entry varId="DRG_RT_GI" value="1"/></Option>
+                </OptionsArray>
+            </Var>
+
+            <Var id="DRG_RT_Reflections" displayName="enable_rt_radiance" displayType="TOGGLE" tags="customDisplayName"/>
+
+            <Var id="DRG_RT_Shadows" displayName="enable_rt_shadows" displayType="OPTIONS" tags="customNames;customDisplayName">
+                <OptionsArray>
+                    <Option id="0" displayName="panel_mainmenu_option_value_off"><Entry varId="DRG_RT_Shadows" value="0"/></Option>
+                    <Option id="1" displayName="dlss_perf"><Entry varId="DRG_RT_Shadows" value="1"/></Option>
+                    <Option id="2" displayName="dlss_quality"><Entry varId="DRG_RT_Shadows" value="2"/></Option>
+                </OptionsArray>
+            </Var>
+
+            <Var id="DRG_RT_AO" displayName="option_rt_ambient_occlusion" displayType="TOGGLE" tags="customDisplayName"/>
         </VisibleVars>
     </Group>
 
@@ -36,6 +61,11 @@
     <!-- ================================================================= -->
     <Group id="DynamicRegionGraphics_Wyzima" displayName="Mods.DynamicRegionGraphics.DRG_Wyzima">
         <VisibleVars>
+            <Var id="DRG_Notice_Wyzima" displayName="DRG_Notice_RTQuality" displayType="OPTIONS" tags="customNames;customDisplayName">
+                <OptionsArray>
+                    <Option id="0" displayName="DRG_Notice_InGeneral"><Entry varId="DRG_Notice_Wyzima" value="0"/></Option>
+                </OptionsArray>
+            </Var>
             <Var id="DRG_Wyzima_Int" displayName="DRG_Interior" displayType="OPTIONS" tags="customNames;customDisplayName">
                 <OptionsArray>
                     <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_Wyzima_Int" value="0"/></Option>
@@ -58,11 +88,9 @@
     <!-- ================================================================= -->
     <Group id="DynamicRegionGraphics_WhiteOrchard" displayName="Mods.DynamicRegionGraphics.DRG_WhiteOrchard">
         <VisibleVars>
-            <Var id="DRG_WhiteOrchard_Ext" displayName="DRG_Exterior" displayType="OPTIONS" tags="customNames;customDisplayName">
+            <Var id="DRG_Notice_WhiteOrchard" displayName="DRG_Notice_RTQuality" displayType="OPTIONS" tags="customNames;customDisplayName">
                 <OptionsArray>
-                    <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_WhiteOrchard_Ext" value="0"/></Option>
-                    <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_WhiteOrchard_Ext" value="1"/></Option>
-                    <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_WhiteOrchard_Ext" value="2"/></Option>
+                    <Option id="0" displayName="DRG_Notice_InGeneral"><Entry varId="DRG_Notice_WhiteOrchard" value="0"/></Option>
                 </OptionsArray>
             </Var>
             <Var id="DRG_WhiteOrchard_Int" displayName="DRG_Interior" displayType="OPTIONS" tags="customNames;customDisplayName">
@@ -70,6 +98,13 @@
                     <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_WhiteOrchard_Int" value="0"/></Option>
                     <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_WhiteOrchard_Int" value="1"/></Option>
                     <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_WhiteOrchard_Int" value="2"/></Option>
+                </OptionsArray>
+            </Var>
+            <Var id="DRG_WhiteOrchard_Ext" displayName="DRG_Exterior" displayType="OPTIONS" tags="customNames;customDisplayName">
+                <OptionsArray>
+                    <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_WhiteOrchard_Ext" value="0"/></Option>
+                    <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_WhiteOrchard_Ext" value="1"/></Option>
+                    <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_WhiteOrchard_Ext" value="2"/></Option>
                 </OptionsArray>
             </Var>
         </VisibleVars>
@@ -80,11 +115,9 @@
     <!-- ================================================================= -->
     <Group id="DynamicRegionGraphics_NovigradVelen" displayName="Mods.DynamicRegionGraphics.DRG_NovigradVelen">
         <VisibleVars>
-            <Var id="DRG_NovigradVelen_Ext" displayName="DRG_Exterior" displayType="OPTIONS" tags="customNames;customDisplayName">
+            <Var id="DRG_Notice_NovigradVelen" displayName="DRG_Notice_RTQuality" displayType="OPTIONS" tags="customNames;customDisplayName">
                 <OptionsArray>
-                    <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_NovigradVelen_Ext" value="0"/></Option>
-                    <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_NovigradVelen_Ext" value="1"/></Option>
-                    <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_NovigradVelen_Ext" value="2"/></Option>
+                    <Option id="0" displayName="DRG_Notice_InGeneral"><Entry varId="DRG_Notice_NovigradVelen" value="0"/></Option>
                 </OptionsArray>
             </Var>
             <Var id="DRG_NovigradVelen_Int" displayName="DRG_Interior" displayType="OPTIONS" tags="customNames;customDisplayName">
@@ -92,6 +125,13 @@
                     <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_NovigradVelen_Int" value="0"/></Option>
                     <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_NovigradVelen_Int" value="1"/></Option>
                     <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_NovigradVelen_Int" value="2"/></Option>
+                </OptionsArray>
+            </Var>
+            <Var id="DRG_NovigradVelen_Ext" displayName="DRG_Exterior" displayType="OPTIONS" tags="customNames;customDisplayName">
+                <OptionsArray>
+                    <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_NovigradVelen_Ext" value="0"/></Option>
+                    <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_NovigradVelen_Ext" value="1"/></Option>
+                    <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_NovigradVelen_Ext" value="2"/></Option>
                 </OptionsArray>
             </Var>
         </VisibleVars>
@@ -102,11 +142,9 @@
     <!-- ================================================================= -->
     <Group id="DynamicRegionGraphics_Skellige" displayName="Mods.DynamicRegionGraphics.DRG_Skellige">
         <VisibleVars>
-            <Var id="DRG_Skellige_Ext" displayName="DRG_Exterior" displayType="OPTIONS" tags="customNames;customDisplayName">
+            <Var id="DRG_Notice_Skellige" displayName="DRG_Notice_RTQuality" displayType="OPTIONS" tags="customNames;customDisplayName">
                 <OptionsArray>
-                    <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_Skellige_Ext" value="0"/></Option>
-                    <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_Skellige_Ext" value="1"/></Option>
-                    <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_Skellige_Ext" value="2"/></Option>
+                    <Option id="0" displayName="DRG_Notice_InGeneral"><Entry varId="DRG_Notice_Skellige" value="0"/></Option>
                 </OptionsArray>
             </Var>
             <Var id="DRG_Skellige_Int" displayName="DRG_Interior" displayType="OPTIONS" tags="customNames;customDisplayName">
@@ -114,6 +152,13 @@
                     <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_Skellige_Int" value="0"/></Option>
                     <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_Skellige_Int" value="1"/></Option>
                     <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_Skellige_Int" value="2"/></Option>
+                </OptionsArray>
+            </Var>
+            <Var id="DRG_Skellige_Ext" displayName="DRG_Exterior" displayType="OPTIONS" tags="customNames;customDisplayName">
+                <OptionsArray>
+                    <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_Skellige_Ext" value="0"/></Option>
+                    <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_Skellige_Ext" value="1"/></Option>
+                    <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_Skellige_Ext" value="2"/></Option>
                 </OptionsArray>
             </Var>
         </VisibleVars>
@@ -124,11 +169,9 @@
     <!-- ================================================================= -->
     <Group id="DynamicRegionGraphics_KaerMorhen" displayName="Mods.DynamicRegionGraphics.DRG_KaerMorhen">
         <VisibleVars>
-            <Var id="DRG_KaerMorhen_Ext" displayName="DRG_Exterior" displayType="OPTIONS" tags="customNames;customDisplayName">
+            <Var id="DRG_Notice_KaerMorhen" displayName="DRG_Notice_RTQuality" displayType="OPTIONS" tags="customNames;customDisplayName">
                 <OptionsArray>
-                    <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_KaerMorhen_Ext" value="0"/></Option>
-                    <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_KaerMorhen_Ext" value="1"/></Option>
-                    <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_KaerMorhen_Ext" value="2"/></Option>
+                    <Option id="0" displayName="DRG_Notice_InGeneral"><Entry varId="DRG_Notice_KaerMorhen" value="0"/></Option>
                 </OptionsArray>
             </Var>
             <Var id="DRG_KaerMorhen_Int" displayName="DRG_Interior" displayType="OPTIONS" tags="customNames;customDisplayName">
@@ -138,19 +181,24 @@
                     <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_KaerMorhen_Int" value="2"/></Option>
                 </OptionsArray>
             </Var>
+            <Var id="DRG_KaerMorhen_Ext" displayName="DRG_Exterior" displayType="OPTIONS" tags="customNames;customDisplayName">
+                <OptionsArray>
+                    <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_KaerMorhen_Ext" value="0"/></Option>
+                    <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_KaerMorhen_Ext" value="1"/></Option>
+                    <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_KaerMorhen_Ext" value="2"/></Option>
+                </OptionsArray>
+            </Var>
         </VisibleVars>
     </Group>
 
     <!-- ================================================================= -->
-    <!-- 7. TOUSSAINT (BLOOD AND WINE)                                     -->
+    <!-- 7. TOUSSAINT                                                      -->
     <!-- ================================================================= -->
     <Group id="DynamicRegionGraphics_Toussaint" displayName="Mods.DynamicRegionGraphics.DRG_Toussaint">
         <VisibleVars>
-            <Var id="DRG_Toussaint_Ext" displayName="DRG_Exterior" displayType="OPTIONS" tags="customNames;customDisplayName">
+            <Var id="DRG_Notice_Toussaint" displayName="DRG_Notice_RTQuality" displayType="OPTIONS" tags="customNames;customDisplayName">
                 <OptionsArray>
-                    <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_Toussaint_Ext" value="0"/></Option>
-                    <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_Toussaint_Ext" value="1"/></Option>
-                    <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_Toussaint_Ext" value="2"/></Option>
+                    <Option id="0" displayName="DRG_Notice_InGeneral"><Entry varId="DRG_Notice_Toussaint" value="0"/></Option>
                 </OptionsArray>
             </Var>
             <Var id="DRG_Toussaint_Int" displayName="DRG_Interior" displayType="OPTIONS" tags="customNames;customDisplayName">
@@ -158,6 +206,13 @@
                     <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_Toussaint_Int" value="0"/></Option>
                     <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_Toussaint_Int" value="1"/></Option>
                     <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_Toussaint_Int" value="2"/></Option>
+                </OptionsArray>
+            </Var>
+            <Var id="DRG_Toussaint_Ext" displayName="DRG_Exterior" displayType="OPTIONS" tags="customNames;customDisplayName">
+                <OptionsArray>
+                    <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_Toussaint_Ext" value="0"/></Option>
+                    <Option id="1" displayName="DRG_Opt_RT"><Entry varId="DRG_Toussaint_Ext" value="1"/></Option>
+                    <Option id="2" displayName="DRG_Opt_PT"><Entry varId="DRG_Toussaint_Ext" value="2"/></Option>
                 </OptionsArray>
             </Var>
         </VisibleVars>
@@ -168,6 +223,11 @@
     <!-- ================================================================= -->
     <Group id="DynamicRegionGraphics_Special" displayName="Mods.DynamicRegionGraphics.DRG_Special">
         <VisibleVars>
+            <Var id="DRG_Notice_Special" displayName="DRG_Notice_RTQuality" displayType="OPTIONS" tags="customNames;customDisplayName">
+                <OptionsArray>
+                    <Option id="0" displayName="DRG_Notice_InGeneral"><Entry varId="DRG_Notice_Special" value="0"/></Option>
+                </OptionsArray>
+            </Var>
             <Var id="DRG_Special_Mist" displayName="DRG_Special_Mist" displayType="OPTIONS" tags="customNames;customDisplayName">
                 <OptionsArray>
                     <Option id="0" displayName="DRG_Opt_Default"><Entry varId="DRG_Special_Mist" value="0"/></Option>

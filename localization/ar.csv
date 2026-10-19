@@ -78,12 +78,16 @@
 2118590075|66c09e4a|option_DRG_Special_Fable|أرض الألف حكاية
 2118590076|cd0e0be4|DRG_Special_Other|مواقع أخرى / غير مدرجة
 2118590077|67482a9a|option_DRG_Special_Other|مواقع أخرى / غير مدرجة
-2118590078|070e0f0f|DRG_Opt_Default|افتراضي (إعدادات المستخدم)
-2118590079|c78c6345|option_DRG_Opt_Default|افتراضي (إعدادات المستخدم)
+2118590078|070e0f0f|DRG_Opt_Default|معطل (افتراضي)
+2118590079|c78c6345|option_DRG_Opt_Default|معطل (افتراضي)
 2118590080|a3fd0cb4|DRG_Opt_RT|فرض تتبع الأشعة (RT)
 2118590081|a2dc6ebe|option_DRG_Opt_RT|فرض تتبع الأشعة (RT)
 2118590082|a3fd0c76|DRG_Opt_PT|فرض تتبع المسار (PT)
 2118590083|a2dc6e80|option_DRG_Opt_PT|فرض تتبع المسار (PT)
-2118590084|bc276ce8|msg_drg_pt|تتبع المسار
-2118590085|bc276d26|msg_drg_rt|تتبع الأشعة
-2118590086|0ce825dd|msg_drg_default|الإعدادات الافتراضية
+2118590084|c46109bc|DRG_Notice_RTQuality|جودة تتبع الأشعة
+2118590085|55dce746|option_DRG_Notice_RTQuality|جودة تتبع الأشعة
+2118590086|f31a5d62|DRG_Notice_InGeneral|في الإعدادات العامة
+2118590087|84963aec|option_DRG_Notice_InGeneral|في الإعدادات العامة
+2118590088|bc276ce8|msg_drg_pt|تتبع المسار
+2118590089|bc276d26|msg_drg_rt|تتبع الأشعة
+2118590090|0ce825dd|msg_drg_default|الإعدادات الافتراضية

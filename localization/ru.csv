@@ -78,12 +78,16 @@
 2118590075|66c09e4a|option_DRG_Special_Fable|Страна Тысячи Сказок
 2118590076|cd0e0be4|DRG_Special_Other|Прочие / Неизвестные локации
 2118590077|67482a9a|option_DRG_Special_Other|Прочие / Неизвестные локации
-2118590078|070e0f0f|DRG_Opt_Default|По умолчанию (настройки игрока)
-2118590079|c78c6345|option_DRG_Opt_Default|По умолчанию (настройки игрока)
+2118590078|070e0f0f|DRG_Opt_Default|Выкл (по умолчанию)
+2118590079|c78c6345|option_DRG_Opt_Default|Выкл (по умолчанию)
 2118590080|a3fd0cb4|DRG_Opt_RT|Трассировка лучей (RT)
 2118590081|a2dc6ebe|option_DRG_Opt_RT|Трассировка лучей (RT)
 2118590082|a3fd0c76|DRG_Opt_PT|Трассировка пути (PT)
 2118590083|a2dc6e80|option_DRG_Opt_PT|Трассировка пути (PT)
-2118590084|bc276ce8|msg_drg_pt|Трассировка пути
-2118590085|bc276d26|msg_drg_rt|Трассировка лучей
-2118590086|0ce825dd|msg_drg_default|Настройки игрока
+2118590084|c46109bc|DRG_Notice_RTQuality|Качество RT
+2118590085|55dce746|option_DRG_Notice_RTQuality|Качество RT
+2118590086|f31a5d62|DRG_Notice_InGeneral|В общих настройках
+2118590087|84963aec|option_DRG_Notice_InGeneral|В общих настройках
+2118590088|bc276ce8|msg_drg_pt|Трассировка пути
+2118590089|bc276d26|msg_drg_rt|Трассировка лучей
+2118590090|0ce825dd|msg_drg_default|Настройки игрока
